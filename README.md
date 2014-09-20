@@ -4,7 +4,7 @@ FlicTool is a LEGO&reg; Rock Raiders Flic Animation compiler/decompiler.
 
 ##Usage
 
-```
+```shell
 FlicTool input [output]
 ```
 
@@ -15,3 +15,7 @@ FlicTool will automatically figure out whether you are looking to decompile an F
 ##Notes
 
 At the moment, FlicTool only supports the exact FLH format used by LEGO&reg; Rock Raiders. Furthermore, when compiling individual frames into a new FLH file, only bitmaps with a depth of 16 bits are supported. Bit depth downsampling will most likely be implemented in a future version, but to make sure that the colors stay consistent, I recommend only using working with 16-bit files.
+
+##Dependencies
+
+FlicTool requires Boost Filesystem and Boost Program Options in order to be built.
