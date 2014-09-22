@@ -1,4 +1,4 @@
-#FlicTool
+#FlicTool [![Build Status](https://travis-ci.org/Merigrim/FlicTool.svg?branch=master)](https://travis-ci.org/Merigrim/FlicTool)
 
 FlicTool is a LEGO&reg; Rock Raiders Flic Animation compiler/decompiler.
 
