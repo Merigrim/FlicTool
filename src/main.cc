@@ -11,7 +11,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/program_options.hpp>
 
-#include "Flic.h"
+#include <FlicTool/Flic.h>
 
 #define FLICTOOL_VERSION "1.0dev"
 
@@ -19,7 +19,7 @@ namespace fs = boost::filesystem;
 namespace po = boost::program_options;
 
 void showHelp(const po::options_description &desc) {
-	std::cout << "Flic Tool\nVersion "FLICTOOL_VERSION"\nCreated by Merigrim (http://www.rockraidersunited.org/user/4758-merigrim/)\n\n" << desc;
+	std::cout << "Flic Tool\nVersion " FLICTOOL_VERSION "\nCreated by Merigrim (http://www.rockraidersunited.org/user/4758-merigrim/)\n\n" << desc;
 }
 
 bool prompt() {

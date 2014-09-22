@@ -1,5 +1,6 @@
-#include "Bitmap.h"
+#include <FlicTool/Bitmap.h>
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
 

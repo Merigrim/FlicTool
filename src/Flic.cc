@@ -1,4 +1,4 @@
-#include "Flic.h"
+#include <FlicTool/Flic.h>
 
 #include <iomanip>
 #include <iostream>
@@ -400,7 +400,6 @@ void Flic::readBrun(const FlicHeader &header, FlicFrame &frame, std::istream &is
 			if (count >= 0) {
 				char *tmp = new char[bytespp];
 				is.read(tmp, bytespp);
-				uint16_t pixel = *(uint16_t*)tmp;
 				for (int j=0; j<count; ++j) {
 					memcpy(frame.pixels + offset + j * bytespp, tmp, bytespp);
 				}
@@ -410,7 +409,6 @@ void Flic::readBrun(const FlicHeader &header, FlicFrame &frame, std::istream &is
 				for (int j=0; j<(-count); ++j) {
 					char *tmp = new char[bytespp];
 					is.read(tmp, bytespp);
-					uint16_t pixel = *(uint16_t*)tmp;
 					memcpy(frame.pixels + offset + j * bytespp, tmp, bytespp);
 					delete tmp;
 				}
@@ -454,7 +452,6 @@ void Flic::readLc(const FlicHeader &header, FlicFrame &frame, std::istream &is) 
 					for (int j=0; j<count; ++j) {
 						char *tmp = new char[bytespp];
 						is.read(tmp, bytespp);
-						uint16_t pixel = *(uint16_t*)tmp;
 						memcpy(frame.pixels + offset + j * bytespp, tmp, bytespp);
 						delete tmp;
 					}
