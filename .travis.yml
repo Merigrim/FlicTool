@@ -4,6 +4,11 @@ compiler:
   - gcc
   
 before_script:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libboost-filesystem-dev
+  - sudo apt-get install -y libboost-program-options-dev
+  - sudo apt-get install -y libboost-regex-dev
+  - sudo apt-get install -y libboost-system-dev
   - mkdir build
   - cd build
   - cmake ..
