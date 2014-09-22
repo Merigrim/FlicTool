@@ -18,4 +18,4 @@ At the moment, FlicTool only supports the exact FLH format used by LEGO&reg; Roc
 
 ##Dependencies
 
-FlicTool requires Boost Filesystem and Boost Program Options in order to be built.
+FlicTool requires Boost Filesystem, Program Options and Regex in order to be built.
