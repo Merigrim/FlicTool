@@ -3,6 +3,7 @@
 #define FLICTOOL_BITMAP_H
 
 #include <cstdint>
+#include <memory>
 #include <string>
 
 #pragma pack(push, 1)
@@ -29,6 +30,19 @@ struct BitmapInfoHeader {
 	uint32_t importantColors;
 };
 #pragma pack(pop)
+
+enum BitmapCompression {
+	BI_RGB = 0,
+	BI_RLE8 = 1,
+	BI_RLE4 = 2,
+	BI_BITFIELDS = 3,
+	BI_JPEG = 4,
+	BI_PNG = 5,
+	BI_ALPHABITFIELDS = 6,
+	BI_CMYK = 11,
+	BI_CMYKRLE8 = 12,
+	BI_CMYKRLE4 = 13
+};
 
 class Bitmap {
 public:
@@ -84,7 +98,9 @@ public:
 	 */
 	const uint32_t height() const;
 private:
-	uint8_t *pixels_;
+	uint8_t *downsamplePixels(uint8_t *original, uint32_t width, uint32_t height, uint32_t bpp, uint32_t *bitMask);
+
+	std::shared_ptr<uint8_t> pixels_;
 	BitmapFileHeader header_;
 	BitmapInfoHeader infoHeader_;
 };
