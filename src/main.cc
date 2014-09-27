@@ -1,7 +1,8 @@
 /*****************************************************************************
  * Flic Tool
- *  Version: 1.0dev
- *  Creator: Merigrim (http://www.rockraidersunited.org/user/4758-merigrim/)
+ *  Version: 1.1
+ *  Copyright (c) 2014 Merigrim
+ *    (http://www.rockraidersunited.org/user/4758-merigrim/)
  *****************************************************************************/
 
 #include <functional>
@@ -13,7 +14,7 @@
 
 #include <FlicTool/Flic.h>
 
-#define FLICTOOL_VERSION "1.0a"
+#define FLICTOOL_VERSION "1.1"
 
 namespace fs = boost::filesystem;
 namespace po = boost::program_options;

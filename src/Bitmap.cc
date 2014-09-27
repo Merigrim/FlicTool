@@ -1,6 +1,5 @@
 #include <FlicTool/Bitmap.h>
 
-#include <cmath>
 #include <cstring>
 #include <fstream>
 #include <iomanip>
@@ -185,23 +184,18 @@ uint8_t *Bitmap::downsamplePixels(uint8_t *original, uint32_t width, uint32_t he
 	
 	for (uint32_t i=0; i<length; ++i) {
 		uint32_t pixel = *(uint32_t*)(original + i * stride);
-		/*float red = (pixel & bitMask[2]) >> bitShift[2];
-		float green = (pixel & bitMask[1]) >> bitShift[1];
-		float blue = (pixel & bitMask[0]) >> bitShift[0];
-		int newRed = std::round(red / (bitMask[2] >> bitShift[2]) * 31);
-		int newGreen = std::round(green / (bitMask[1] >> bitShift[1]) * 31);
-		int newBlue = std::round(blue / (bitMask[0] >> bitShift[0]) * 31);
-		uint16_t newPixel = ((newRed & 0x1f) << 10) |
-							((newGreen & 0x1f) << 5) |
-							(newBlue & 0x1f);*/
 		uint16_t newPixel = 0;
 		for (int j=0; j<3; ++j) {
 			float c = (pixel & bitMask[j]) >> bitShift[j];
-			int newC = std::round(c / (bitMask[j] >> bitShift[j]) * 31);
+			int newC = round(c / (bitMask[j] >> bitShift[j]) * 31);
 			newPixel |= ((newC & 0x1f) << (j * 5));
 		}
 		*(uint16_t*)(result + i * 2) = newPixel;
 	}
 	
 	return result;
+}
+
+int Bitmap::round(float n) {
+	return static_cast<int>(n + 0.5f);
 }

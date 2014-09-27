@@ -99,6 +99,8 @@ public:
 	const uint32_t height() const;
 private:
 	uint8_t *downsamplePixels(uint8_t *original, uint32_t width, uint32_t height, uint32_t bpp, uint32_t *bitMask);
+	
+	int round(float n);
 
 	std::shared_ptr<uint8_t> pixels_;
 	BitmapFileHeader header_;

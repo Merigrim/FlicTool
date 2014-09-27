@@ -4,4 +4,4 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 */bin/*
-build
+build*
