@@ -5,7 +5,7 @@ FlicTool is a LEGO&reg; Rock Raiders Flic Animation compiler/decompiler.
 ##Usage
 
 ```shell
-FlicTool input [output]
+./FlicTool input [output]
 ```
 
 FlicTool will automatically figure out whether you are looking to decompile an FLH file or compile a folder of frames based on what you supply as `input`.
@@ -18,4 +18,4 @@ At the moment, FlicTool only supports the exact FLH format used by LEGO&reg; Roc
 
 ##Dependencies
 
-FlicTool requires Boost Filesystem, Program Options, Regex and System in order to be built.
+FlicTool requires Boost Filesystem, Program Options and System in order to be built.

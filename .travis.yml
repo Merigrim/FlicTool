@@ -20,7 +20,7 @@ install:
   - export CMAKE_MODULE_PATH="$BOOST_ROOT"
   - mkdir -p $BOOST_ROOT
   - tar jxf boost-trunk.tar.bz2 --strip-components=1 -C $BOOST_ROOT
-  - (cd $BOOST_ROOT; ./bootstrap.sh --with-libraries=filesystem,system,regex,program_options)
+  - (cd $BOOST_ROOT; ./bootstrap.sh --with-libraries=filesystem,system,program_options)
   - (cd $BOOST_ROOT; ./b2 link=static threading=multi --prefix=$BOOST_ROOT -d0 install)
 
 before_script:
