@@ -2,10 +2,10 @@
 
 #include <iomanip>
 #include <iostream>
+#include <regex>
 #include <sstream>
 
 #include <boost/filesystem.hpp>
-#include <boost/regex.hpp>
 
 namespace fs = boost::filesystem;
 
@@ -16,14 +16,14 @@ void Flic::compile(const std::string &input, const std::string &output) {
 	// Note: 16-bit bitmaps aren't very big, but let's load them lazily in the
 	// next version
 	std::vector<std::string> frameFilenames;
-	boost::regex frameFilter("frame[0-9]{4}.bmp");
+	std::regex frameFilter("frame[0-9]{4}.bmp");
 	fs::directory_iterator endIter;
 	for (fs::directory_iterator iter(input); iter != endIter; ++iter) {
 		if (!fs::is_regular_file(iter->status())) continue;
 
-		boost::smatch what;
+		auto fileName = iter->path().filename().string();
+		if (!std::regex_match(fileName, frameFilter)) continue;
 
-		if (!boost::regex_match(iter->path().leaf().string(), what, frameFilter)) continue;
 		frameFilenames.push_back(iter->path().string());
 	}
 	if (frameFilenames.size() == 0) {
